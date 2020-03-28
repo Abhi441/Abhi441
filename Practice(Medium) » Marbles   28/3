@@ -1,0 +1,55 @@
+# Abhi441
+Practice(Medium) » Marbles   28/3
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+    public static long combination(int n,int r){
+        if(n==r)
+        return(1);
+        long p=1,p1=1,i,j;
+        if(r>(n-r))
+        {
+        j=2;
+        for(i=r+1;i<=n;i++)
+        {
+            p=p*i;
+            if(j<=n-r && p%j==0)
+            {
+                p=p/j;
+                j++;
+            }
+        }
+        }
+        else
+        {
+            j=2;
+            for(i=n-r+1;i<=n;i++)
+            {
+                p=p*i;
+                if(j<=r && p%j==0)
+            {
+                p=p/j;
+                j++;
+            }
+                
+            }
+        }
+        return(p/p1);
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner ob=new Scanner(System.in);
+		int t,n,r;
+    	t=ob.nextInt();
+		while(t-->0){
+		    n=ob.nextInt();
+		    r=ob.nextInt();
+		    System.out.println(combination(n-1,r-1));
+		}
+	}
+}
